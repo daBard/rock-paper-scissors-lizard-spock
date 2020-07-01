@@ -7,34 +7,49 @@ const hands = [
 ];
 
 function main() {
-    //alert(computerPlay());
+    const playerSelection = hands[0].symbol;
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
 }
 
-
-
 function computerPlay() {
-    return hands[Math.floor(Math.random() * hands.length)];
+    return hands[Math.floor(Math.random() * hands.length)].symbol;
 }
 
 function playRound(playerSelection, computerSelection) {
-    const message = [
-        `Tie!`, 
-        `You Win! ${playerSelection} ${beat} ${computerSelection}`, 
-        `You Lose! ${computerSelection} ${beat} ${playerSelection}`
-    ];
-    
-    let playerSelection = playerSelection.toLowerCase();
-    let computerSelection = computerPlay();
+    let beat;
 
-    if (playerSelection = computerSelection.toLowerCase() {
-        return message
+    if (playerSelection == computerSelection) {
+        return messages[0];
     }
 
-    if (playerSelection = hands[0].symbol.toLowerCase()) {
-        if (computerSelection = hands[2]) {
-            beat = hands[2].beat1;
+    if (playerSelection == hands[0].symbol.toLowerCase()) {
+        if (computerSelection == hands[2].symbol) {
+            beat = hands[0].beat1;
+            return messages[1]
         }
-    }
+        else if (computerSelection == hands[3].symbol) {
+            beat = hands[0].beat2;
+            return messages[1]    
+        }
+        else if (computerSelection == hands[1].symbol) {
+            beat = hands[1].beat2;
+            return messages[2]    
+        }
+        else if (computerSelection == hands[4].symbol) {
+            beat = hands[4].beat2;
+            return messages[2]    
+        }
+
         
+    }
+
+    function winMessage(playerSelection, beat, computerSelection) {
+        let messages = [
+            `Tie!`, 
+            `You Win! ${playerSelection} ${beat} ${computerSelection}`, 
+            `You Lose! ${computerSelection} ${beat} ${playerSelection}`
+        ];
+    }
 
 }
