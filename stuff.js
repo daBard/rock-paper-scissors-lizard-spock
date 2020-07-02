@@ -14,7 +14,7 @@ let numOfGames = 0;
 let playerWins = 0;
 let computerWins = 0;
 
-//On change of 
+//On change of select-box
 selectBox.onchange = function() {
     if (numOfGames < 5) {
         game();
@@ -29,17 +29,19 @@ selectBox.onchange = function() {
     selectBox.selectedIndex = 0;
 }
 
+//Picks signs, plays a round and prints win-message 
 function game() {
     const playerSelection = selectBox.options[selectBox.selectedIndex].value;
     const computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
 }
 
-
+//Computer randomly picks sign
 function computerPlay() {
     return hands[Math.floor(Math.random() * hands.length)].sign;
 }
 
+//Plays a round and returns win-message
 function playRound(pS, cS) {
     let beat;
 
@@ -141,10 +143,9 @@ function playRound(pS, cS) {
             return winMessage(false, pS, beat, cS);   
         }
     }
-
 }
     
-
+//Builds the win-message
 function winMessage(winner, playerSelection, beat, computerSelection) {
     if (winner == null) {
         return `Tie!`;
@@ -163,10 +164,12 @@ function winMessage(winner, playerSelection, beat, computerSelection) {
     } 
 }
 
+//First letter capitalized
 function firstCapital(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
+//If spock -> Spock
 function checkIfSpock(string) {
     if (string == 'spock') { return firstCapital(string); }
     else { return string; }
