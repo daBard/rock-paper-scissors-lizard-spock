@@ -1,10 +1,10 @@
 //Different signs and their verbs
 const hands = [
-    { sign: 'rock', beat1: 'crushes', beat2: 'crushes' },
-    { sign: 'paper', beat1: 'covers', beat2: 'disproves'}, 
-    { sign: 'scissors', beat1: 'cuts', beat2: 'decapitates'},
-    { sign: 'lizard', beat1: 'eats', beat2: 'poisons'}, 
-    { sign: 'spock', beat1: 'vaporizes', beat2: 'smashes'}
+    { sign: 'rock', beatVerb1: 'crushes', beatVerb2: 'crushes' },
+    { sign: 'paper', beatVerb1: 'covers', beatVerb2: 'disproves'}, 
+    { sign: 'scissors', beatVerb1: 'cuts', beatVerb2: 'decapitates'},
+    { sign: 'lizard', beatVerb1: 'eats', beatVerb2: 'poisons'}, 
+    { sign: 'spock', beatVerb1: 'vaporizes', beatVerb2: 'smashes'}
 ];
 
 //set global variables
@@ -42,123 +42,124 @@ function computerPlay() {
 }
 
 //Plays a round and returns win-message
-function playRound(pS, cS) {
-    let beat;
+function playRound(_playerSelect, _computerSelect) {
+    let beatVerb;
 
-    if (pS == cS) {
-        return winMessage(null, pS, beat, cS);
+    if (_playerSelect == _computerSelect) {
+        return winMessage(null, _playerSelect, beatVerb, _computerSelect);
     }
 
-    if (pS == hands[0].sign) {
-        if (cS == hands[2].sign) {
-            beat = hands[0].beat1;
-            return winMessage(true, pS, beat, cS);
+    if (_playerSelect == hands[0].sign) {
+        if (_computerSelect == hands[2].sign) {
+            beatVerb = hands[0].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);
         }
-        else if (cS == hands[3].sign) {
-            beat = hands[0].beat2;
-            return winMessage(true, pS, beat, cS);  
+        else if (_computerSelect == hands[3].sign) {
+            beatVerb = hands[0].beatVerb2;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
         }
-        else if (cS == hands[1].sign) {
-            beat = hands[1].beat1;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[1].sign) {
+            beatVerb = hands[1].beatVerb1;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
-        else if (cS == hands[4].sign) {
-            beat = hands[4].beat1;
-            return winMessage(false, pS, beat, cS);   
-        }
-    }
-
-    else if (pS == hands[1].sign) {
-        if (cS == hands[0].sign) {
-            beat = hands[1].beat1;
-            return winMessage(true, pS, beat, cS);
-        }
-        else if (cS == hands[4].sign) {
-            beat = hands[1].beat2;
-            return winMessage(true, pS, beat, cS);  
-        }
-        else if (cS == hands[2].sign) {
-            beat = hands[2].beat1;
-            return winMessage(false, pS, beat, cS);   
-        }
-        else if (cS == hands[3].sign) {
-            beat = hands[3].beat1;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[4].sign) {
+            beatVerb = hands[4].beatVerb1;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
     }
 
-    else if (pS == hands[2].sign) {
-        if (cS == hands[1].sign) {
-            beat = hands[2].beat1;
-            return winMessage(true, pS, beat, cS);
+    else if (_playerSelect == hands[1].sign) {
+        if (_computerSelect == hands[0].sign) {
+            beatVerb = hands[1].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);
         }
-        else if (cS == hands[3].sign) {
-            beat = hands[1].beat1;
-            return winMessage(true, pS, beat, cS);  
+        else if (_computerSelect == hands[4].sign) {
+            beatVerb = hands[1].beatVerb2;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
         }
-        else if (cS == hands[0].sign) {
-            beat = hands[0].beat2;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[2].sign) {
+            beatVerb = hands[2].beatVerb1;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
-        else if (cS == hands[4].sign) {
-            beat = hands[4].beat2;
-            return winMessage(false, pS, beat, cS);   
-        }
-    }
-
-    else if (pS == hands[3].sign) {
-        if (cS == hands[1].sign) {
-            beat = hands[3].beat1;
-            return winMessage(true, pS, beat, cS);
-        }
-        else if (cS == hands[4].sign) {
-            beat = hands[3].beat2;
-            return winMessage(true, pS, beat, cS);  
-        }
-        else if (cS == hands[0].sign) {
-            beat = hands[0].beat2;
-            return winMessage(false, pS, beat, cS);   
-        }
-        else if (cS == hands[2].sign) {
-            beat = hands[2].beat2;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[3].sign) {
+            beatVerb = hands[3].beatVerb1;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
     }
 
-    else if (pS == hands[4].sign) {
-        if (cS == hands[0].sign) {
-            beat = hands[4].beat1;
-            return winMessage(true, pS, beat, cS);
+    else if (_playerSelect == hands[2].sign) {
+        if (_computerSelect == hands[1].sign) {
+            beatVerb = hands[2].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);
         }
-        else if (cS == hands[2].sign) {
-            beat = hands[4].beat2;
-            return winMessage(true, pS, beat, cS);  
+        else if (_computerSelect == hands[3].sign) {
+            beatVerb = hands[1].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
         }
-        else if (cS == hands[1].sign) {
-            beat = hands[1].beat2;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[0].sign) {
+            beatVerb = hands[0].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
-        else if (cS == hands[3].sign) {
-            beat = hands[3].beat2;
-            return winMessage(false, pS, beat, cS);   
+        else if (_computerSelect == hands[4].sign) {
+            beatVerb = hands[4].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
+        }
+    }
+
+    else if (_playerSelect == hands[3].sign) {
+        if (_computerSelect == hands[1].sign) {
+            beatVerb = hands[3].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);
+        }
+        else if (_computerSelect == hands[4].sign) {
+            beatVerb = hands[3].beatVerb2;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
+        }
+        else if (_computerSelect == hands[0].sign) {
+            beatVerb = hands[0].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
+        }
+        else if (_computerSelect == hands[2].sign) {
+            beatVerb = hands[2].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
+        }
+    }
+
+    else if (_playerSelect == hands[4].sign) {
+        if (_computerSelect == hands[0].sign) {
+            beatVerb = hands[4].beatVerb1;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);
+        }
+        else if (_computerSelect == hands[2].sign) {
+            beatVerb = hands[4].beatVerb2;
+            return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
+        }
+        else if (_computerSelect == hands[1].sign) {
+            beatVerb = hands[1].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
+        }
+        else if (_computerSelect == hands[3].sign) {
+            beatVerb = hands[3].beatVerb2;
+            return winMessage(false, _playerSelect, beatVerb, _computerSelect);   
         }
     }
 }
     
 //Builds the win-message
-function winMessage(winner, playerSelection, beat, computerSelection) {
-    if (winner == null) {
-        return `Tie!`;
+function winMessage(_winner, _playerSelection, _beatVerb, _computerSelection) {
+    if (_winner == null) {
+        _playerSelection = checkIfSpock(_playerSelection);
+        return `Tie! You both picked ${_playerSelection}!`;
     }
-    else if (winner) { 
-        computerSelection = checkIfSpock(computerSelection);
-        let temp = firstCapital(`${playerSelection} ${beat} ${computerSelection}`);
+    else if (_winner) { 
+        _computerSelection = checkIfSpock(_computerSelection);
+        let temp = firstCapital(`${_playerSelection} ${_beatVerb} ${_computerSelection}`);
         playerWins++;
         return `You Win! ${temp}!`;
     }
-    else if (!winner) { 
-        playerSelection = checkIfSpock(playerSelection);
-        let temp = firstCapital(`${computerSelection} ${beat} ${playerSelection}`);
+    else if (!_winner) { 
+        _playerSelection = checkIfSpock(_playerSelection);
+        let temp = firstCapital(`${_computerSelection} ${_beatVerb} ${_playerSelection}`);
         computerWins++;
         return `You Lose! ${temp}!`;
     } 
