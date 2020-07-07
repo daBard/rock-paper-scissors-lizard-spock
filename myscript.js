@@ -21,20 +21,27 @@ let playerWins = 0;
 let computerWins = 0;
 let gameOn = false;
 
-//Build array of player signs and add event listener, the event listener
+//Build array of player signs and add event listener that either runs game or resets game
 Array.from(docPlayerSigns).forEach(docPlayerSign => docPlayerSign.addEventListener('click', function(e){ 
     if (gameOn == false) {
         gameOn = true;
+        for (let i = 0; i < docPlayerSigns.length; i++) {
+            if (docPlayerSigns[i].id != e.target.id) { docPlayerSigns[i].classList.add('not-picked'); }
+            docPlayerSigns[i].classList.remove('pickable');    
+        }
         game(e.target.id);
     }
     else {        
-        let scrubs = Array.from(docPlayerSigns);
-        scrubs.push(Array.from(docCompSign));
-        scrubs.forEach(scrub => function(scrub){
-            scrub.classList.remove('winner');
-            scrub.classList.remove('looser');
-            scrub.classList.remove('not-picked');
-        });
+        for (let i = 0; i < docPlayerSigns.length; i++) {
+            docPlayerSigns[i].classList.remove('winner');
+            docPlayerSigns[i].classList.remove('looser');
+            docPlayerSigns[i].classList.remove('not-picked');
+            docPlayerSigns[i].classList.add('pickable');    
+        }
+        docCompSign.classList.remove('winner');
+        docCompSign.classList.remove('looser');
+        docWinner.textContent = 'CONTINUE!';
+        docCondition.textContent = '1... 2... 3...'
         gameOn = false;
     }
 }));
@@ -52,12 +59,6 @@ function setScore() {
     docTotal.textContent = `TOTAL: ${numOfGames}`;
 }
 
-//Picks signs, plays a round and prints win-message 
-function game(_playerSelection) {
-    const computerSelection = computerPlay();
-    playRound(_playerSelection, computerSelection);
-}
-
 //Computer randomly picks and shows sign
 function computerPlay() {
     let hand = hands[Math.floor(Math.random() * hands.length)];
@@ -66,8 +67,9 @@ function computerPlay() {
 }
 
 //Plays a round and returns win-message
-function playRound(_playerSelect, _computerSelect) {
+function game(_playerSelect) {
     let beatVerb;
+    _computerSelect = computerPlay();
 
     if (_playerSelect == _computerSelect) {
         return winMessage(null, _playerSelect, beatVerb, _computerSelect);
@@ -173,6 +175,9 @@ function playRound(_playerSelect, _computerSelect) {
 function winMessage(_winner, _playerSelection, _beatVerb, _computerSelection) {
     numOfGames++;
     if (_winner == null) {
+        docCompSign.classList.add('looser');
+        document.querySelector(`#${_playerSelection}`).classList.add('looser');
+
         _playerSelection = checkIfSpock(_playerSelection);
         docWinner.textContent = 'TIE!';
         docCondition.textContent = `You both picked ${_playerSelection}...`;
@@ -181,7 +186,6 @@ function winMessage(_winner, _playerSelection, _beatVerb, _computerSelection) {
     else if (_winner) { 
         docCompSign.classList.add('looser');
         document.querySelector(`#${_playerSelection}`).classList.add('winner');
-
 
         _computerSelection = checkIfSpock(_computerSelection);
         docWinner.textContent = 'YOU WIN!';

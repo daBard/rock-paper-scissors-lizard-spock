@@ -13,7 +13,7 @@ body {
     background-color: #accaca;
 }
 
-header {
+header, footer {
     
     width: 100%;
     background-color: #215661;
@@ -35,6 +35,25 @@ img {
     margin: 4px 8px;
 }
 
+article {
+    max-width: 45vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #215661;
+    color: #fff;
+    font-size: 2em;
+    line-height: 1.15;
+    padding: 5vw;
+    border: 5px solid #fff;
+
+}
+
+a {
+    color: #fff;
+}
+
 /* CLASSES */
 .flex-center {
     display: flex;
@@ -54,7 +73,7 @@ img {
 }
 
 /* HEADER */
-.header-text {
+.header-text, .footer-text {
     max-width: 1024px;
     width: 100%;
     margin: 10px;
