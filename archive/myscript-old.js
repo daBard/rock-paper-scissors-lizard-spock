@@ -1,68 +1,44 @@
-// DOM ELEMENTS
-const docScore = document.querySelector('#score');
-const docTotal = document.querySelector('#total');
-const docCompSign = document.querySelector('#comp-sign-img');
-const docWinner = document.querySelector('#win-loose');
-const docCondition = document.querySelector('#condition');
-const docPlayerSigns = document.querySelectorAll('.player-sign img');
-
 //Different signs and their verbs
 const hands = [
-    { sign: 'rock', beatVerb1: 'crushes', beatVerb2: 'crushes', img: 'img/rock.jpg'},
-    { sign: 'paper', beatVerb1: 'covers', beatVerb2: 'disproves', img: 'img/paper.jpg'}, 
-    { sign: 'scissors', beatVerb1: 'cuts', beatVerb2: 'decapitates', img: 'img/scissors.jpg'},
-    { sign: 'lizard', beatVerb1: 'eats', beatVerb2: 'poisons', img: 'img/lizard.jpg'}, 
-    { sign: 'spock', beatVerb1: 'vaporizes', beatVerb2: 'smashes', img: 'img/spock.jpg'}
+    { sign: 'rock', beatVerb1: 'crushes', beatVerb2: 'crushes' },
+    { sign: 'paper', beatVerb1: 'covers', beatVerb2: 'disproves'}, 
+    { sign: 'scissors', beatVerb1: 'cuts', beatVerb2: 'decapitates'},
+    { sign: 'lizard', beatVerb1: 'eats', beatVerb2: 'poisons'}, 
+    { sign: 'spock', beatVerb1: 'vaporizes', beatVerb2: 'smashes'}
 ];
 
 //set global variables
+const selectBox = document.getElementById('hands');
+
 let numOfGames = 0;
 let playerWins = 0;
 let computerWins = 0;
-let gameOn = false;
 
-//Build array of player signs and add event listener, the event listener
-Array.from(docPlayerSigns).forEach(docPlayerSign => docPlayerSign.addEventListener('click', function(e){ 
-    if (gameOn == false) {
-        gameOn = true;
-        game(e.target.id);
+//On change of select-box
+selectBox.onchange = function() {
+    if (numOfGames < 5) {
+        game();
+        numOfGames++; 
+        console.log(numOfGames);
     }
-    else {        
-        let scrubs = Array.from(docPlayerSigns);
-        scrubs.push(Array.from(docCompSign));
-        scrubs.forEach(scrub => function(scrub){
-            scrub.classList.remove('winner');
-            scrub.classList.remove('looser');
-            scrub.classList.remove('not-picked');
-        });
-        gameOn = false;
+    if (numOfGames >= 5) {
+        console.clear();
+        console.log(`Player has won ${playerWins} times!`);
+        console.log(`Computer has won ${computerWins} times!`);
     }
-}));
-
-function resetAll() {
-    numOfGames = 0;
-    playerWins = 0;
-    computerWins = 0;
-    
-    setScore();
-}
-
-function setScore() {
-    docScore.textContent = `PLAYER ${playerWins} : ${computerWins} COMPUTER`;
-    docTotal.textContent = `TOTAL: ${numOfGames}`;
+    selectBox.selectedIndex = 0;
 }
 
 //Picks signs, plays a round and prints win-message 
-function game(_playerSelection) {
+function game() {
+    const playerSelection = selectBox.options[selectBox.selectedIndex].value;
     const computerSelection = computerPlay();
-    playRound(_playerSelection, computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
 }
 
-//Computer randomly picks and shows sign
+//Computer randomly picks sign
 function computerPlay() {
-    let hand = hands[Math.floor(Math.random() * hands.length)];
-    docCompSign.src = hand.img;
-    return hand.sign;
+    return hands[Math.floor(Math.random() * hands.length)].sign;
 }
 
 //Plays a round and returns win-message
@@ -171,36 +147,22 @@ function playRound(_playerSelect, _computerSelect) {
     
 //Builds the win-message
 function winMessage(_winner, _playerSelection, _beatVerb, _computerSelection) {
-    numOfGames++;
     if (_winner == null) {
         _playerSelection = checkIfSpock(_playerSelection);
-        docWinner.textContent = 'TIE!';
-        docCondition.textContent = `You both picked ${_playerSelection}...`;
-        setScore();
+        return `Tie! You both picked ${_playerSelection}!`;
     }
     else if (_winner) { 
-        docCompSign.classList.add('looser');
-        document.querySelector(`#${_playerSelection}`).classList.add('winner');
-
-
         _computerSelection = checkIfSpock(_computerSelection);
-        docWinner.textContent = 'YOU WIN!';
-        docCondition.textContent = firstCapital(`${_playerSelection} ${_beatVerb} ${_computerSelection}...`);
-        
+        let temp = firstCapital(`${_playerSelection} ${_beatVerb} ${_computerSelection}`);
         playerWins++;
-        setScore();
+        return `You Win! ${temp}!`;
     }
     else if (!_winner) { 
-        docCompSign.classList.add('winner');
-        document.querySelector(`#${_playerSelection}`).classList.add('looser');
-
         _playerSelection = checkIfSpock(_playerSelection);
-        docWinner.textContent = 'YOU LOOSE!';
-        docCondition.textContent = firstCapital(`${_computerSelection} ${_beatVerb} ${_playerSelection}...`);
-
+        let temp = firstCapital(`${_computerSelection} ${_beatVerb} ${_playerSelection}`);
         computerWins++;
-        setScore();
-    }
+        return `You Lose! ${temp}!`;
+    } 
 }
 
 //First letter capitalized

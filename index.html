@@ -2,19 +2,54 @@
 <html>
 
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel = "stylesheet" type = "text/css" href = "reset.css" />
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
 </head>
 
-<body>
+<body onload="resetAll()">
+    <header class="flex-center">
+        <div class="header-text">
+            <div id="score">PLAYER 0 : 0 COMPUTER</div>
+            <div id="total">TOTAL: 0</div>
+        </div>
+    </header>
 
-    <select name="hands" id="hands">
-        <option value="" disabled selected>Pick your weapon!</option>
-        <option value="rock">Rock</option>
-        <option value="paper">Paper</option>
-        <option value="scissors">Scissors</option>
-        <option value="lizard">Lizard</option>
-        <option value="spock">Spock</option>
-    </select>
+    <main>
+        <div class="comp-wrapper">
+            <div class="comp-text-wrap flex-center">
+                <div class="comp-text heading">COMPUTER</div>
+            </div>
+            <div class="comp-sign-wrap flex-center">
+                <div class="comp-sign"><img id="comp-sign-img" src="img/rock.jpg"></div>
+            </div>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="win-loose-text-wrap flex-center">
+                <div id="win-loose" class="win-loose-heading heading">GO!</div>
+                <div id="condition" class="win-loose-text">1... 2... 3...</div>
+            </div>    
+        </div>
+
+        <div class="player-wrapper">
+            <div class="player-sign-wrap flex-center">
+                <div class="flex-center">
+                    <div class="player-sign"><img id="rock" class="pickable" src="img/rock.jpg"></div>
+                    <div class="player-sign"><img id="paper" class="pickable" src="img/paper.jpg"></div>
+                    <div class="player-sign"><img id="scissors" class="pickable" src="img/scissors.jpg"></div>
+                </div>
+                <div class="flex-center">
+                    <div class="player-sign"><img id="lizard" class="pickable" src="img/lizard.jpg"></div>
+                    <div class="player-sign"><img id="spock" class="pickable" src="img/spock.jpg"></div>
+                </div>
+            </div>
+            <div class="player-text-wrap flex-center">
+                <div class="player-text heading">PLAYER</div>
+            </div>    
+        </div>
+    </main>
 
     <script src="myscript.js"></script>
 

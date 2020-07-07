@@ -1,0 +1,240 @@
+/* GLOBAL */
+body {
+    min-width: 300px;
+    min-height: 300px;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    background-color: #accaca;
+}
+
+header {
+    
+    width: 100%;
+    background-color: #215661;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    color: #215661;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+img {
+    margin: 4px 8px;
+}
+
+/* CLASSES */
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 1.1em;
+}
+
+.winner {
+    box-shadow: 0px 0px 5px 3px green;
+}
+
+.looser {
+    box-shadow: 0px 0px 5px 3px red;
+}
+
+/* HEADER */
+.header-text {
+    max-width: 1024px;
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* COMPUTER */
+
+
+/* WIN-LOOSE */
+.win-loose-text-wrap {
+    flex-direction: column;
+    align-items: center;
+}
+
+.win-loose-heading {
+    font-size: 1.5em;
+}
+
+/* PLAYER */
+.player-sign-wrap {
+    flex-direction: column;
+}
+
+.player-text, .comp-text {
+    padding: 10px;
+}
+
+.player-sign img, .comp-sign img {
+    max-width: 45px;
+    border-radius: 50%;
+}
+
+.pickable:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px 3px #fff;
+}
+
+.not-picked {
+    opacity: 0.5;
+}
+
+@media only screen and (min-width: 400px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 400px) and (min-height: 600px) {
+    .player-sign-wrap {
+        flex-direction: column;
+    }
+    .player-sign img, .comp-sign img {
+        max-width: 90px;
+    }
+    .heading {
+        font-size: 1.5em;
+    }
+    .win-loose-heading {
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 600px) and (min-height:600px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 600px) and (min-height: 700px) {
+    .player-sign-wrap {
+        flex-direction: column;
+    }
+    .player-sign img, .comp-sign img {
+        max-width: 180px;
+    }
+    .heading {
+        font-size: 3em;
+    }
+    .win-loose-heading {
+        font-size: 5em;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (min-height: 700px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+    .player-sign img, .comp-sign img {
+        max-width: 180px;
+    }
+    .heading {
+        font-size: 3em;
+    }
+    .win-loose-heading {
+        font-size: 5em;
+    }
+}
+
+
+
+
+/*@media only screen and (min-width: 300px) and (min-height: 420px) {
+    .player-sign img, .comp-sign img {
+        max-width: 90px;
+    }
+    .heading {
+        font-size: 1.5em;
+    }
+    .win-loose-heading {
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 700px) and (min-height: 700px) {
+    .heading {
+        font-size: 2em;
+    }
+    .win-loose-heading {
+        font-size: 5em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-height: 600px) {
+    .player-sign img, .comp-sign img {
+        max-width: 180px;
+    }
+}*/
+
+/*@media only screen and (min-width: 400px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-height: 600px) {
+    .player-sign-wrap {
+        flex-direction: column;
+    }
+    .player-sign img, .comp-sign img {
+        max-width: 90px;
+    }
+    .heading {
+        font-size: 1.5em;
+    }
+    .win-loose-heading {
+        font-size: 3em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-height: 1024px) {
+    .player-sign-wrap {
+        flex-direction: column;
+    }
+    .player-sign img, .comp-sign img {
+        max-width: 180px;
+    }
+    .heading {
+        font-size: 3em;
+    }
+    .win-loose-heading {
+        font-size: 5em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .player-sign-wrap {
+        flex-direction: row;
+    }
+}*/
