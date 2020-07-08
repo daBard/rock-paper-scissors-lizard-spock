@@ -40,10 +40,6 @@ img {
 
 article {
     max-width: 45vw;
-    /*position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;*/
     background-color: #215661;
     color: #fff;
     font-size: 1.25em;
@@ -229,87 +225,3 @@ article p:last-of-type {
         font-size: 5em;
     }
 }
-
-
-
-
-/*@media only screen and (min-width: 300px) and (min-height: 420px) {
-    .player-sign img, .comp-sign img {
-        max-width: 90px;
-    }
-    .heading {
-        font-size: 1.5em;
-    }
-    .win-loose-heading {
-        font-size: 3em;
-    }
-}
-
-@media only screen and (min-width: 700px) and (min-height: 700px) {
-    .heading {
-        font-size: 2em;
-    }
-    .win-loose-heading {
-        font-size: 5em;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .player-sign-wrap {
-        flex-direction: row;
-    }
-}
-
-@media only screen and (min-height: 600px) {
-    .player-sign img, .comp-sign img {
-        max-width: 180px;
-    }
-}*/
-
-/*@media only screen and (min-width: 400px) {
-    .player-sign-wrap {
-        flex-direction: row;
-    }
-}
-
-@media only screen and (min-height: 600px) {
-    .player-sign-wrap {
-        flex-direction: column;
-    }
-    .player-sign img, .comp-sign img {
-        max-width: 90px;
-    }
-    .heading {
-        font-size: 1.5em;
-    }
-    .win-loose-heading {
-        font-size: 3em;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .player-sign-wrap {
-        flex-direction: row;
-    }
-}
-
-@media only screen and (min-height: 1024px) {
-    .player-sign-wrap {
-        flex-direction: column;
-    }
-    .player-sign img, .comp-sign img {
-        max-width: 180px;
-    }
-    .heading {
-        font-size: 3em;
-    }
-    .win-loose-heading {
-        font-size: 5em;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .player-sign-wrap {
-        flex-direction: row;
-    }
-}*/
