@@ -5,6 +5,11 @@ const docCompSign = document.querySelector('#comp-sign-img');
 const docWinner = document.querySelector('#win-loose');
 const docCondition = document.querySelector('#condition');
 const docPlayerSigns = document.querySelectorAll('.player-sign img');
+const docAboutLink = document.querySelector('#about-link');
+const docAboutBox = document.querySelector('#about');
+const docResetLink = document.querySelector('#reset-link');
+const docResetBox = document.querySelector('#reset-confirmation');
+const docResetYes = document.querySelector('#reset-y');
 
 //Different signs and their verbs
 const hands = [
@@ -21,6 +26,39 @@ let playerWins = 0;
 let computerWins = 0;
 let gameOn = false;
 
+//set event listeners on clickable content
+docAboutLink.addEventListener('click', function(){
+    docAboutBox.classList.toggle('blocker');
+    docAboutBox.classList.toggle('hidden');
+});
+
+docAboutBox.addEventListener('click', function(e){
+    if (docAboutBox == e.target) {
+        docAboutBox.classList.toggle('blocker');
+        docAboutBox.classList.toggle('hidden');
+    }
+});
+
+docResetLink.addEventListener('click', function() {
+    docResetBox.classList.toggle('blocker');
+    docResetBox.classList.toggle('hidden');
+});
+
+docResetBox.addEventListener('click', function(e){
+    if (docResetBox == e.target) {
+        docResetBox.classList.toggle('blocker');
+        docResetBox.classList.toggle('hidden');
+    }
+});
+
+docResetYes.addEventListener('click', function(){
+   resetScore();
+   resetGame('START!');
+   docResetBox.classList.toggle('blocker');
+   docResetBox.classList.toggle('hidden');
+
+});
+
 //Build array of player signs and add event listener that either runs game or resets game
 Array.from(docPlayerSigns).forEach(docPlayerSign => docPlayerSign.addEventListener('click', function(e){ 
     if (gameOn == false) {
@@ -32,25 +70,28 @@ Array.from(docPlayerSigns).forEach(docPlayerSign => docPlayerSign.addEventListen
         game(e.target.id);
     }
     else {        
-        for (let i = 0; i < docPlayerSigns.length; i++) {
-            docPlayerSigns[i].classList.remove('winner');
-            docPlayerSigns[i].classList.remove('looser');
-            docPlayerSigns[i].classList.remove('not-picked');
-            docPlayerSigns[i].classList.add('pickable');    
-        }
-        docCompSign.classList.remove('winner');
-        docCompSign.classList.remove('looser');
-        docWinner.textContent = 'CONTINUE!';
-        docCondition.textContent = '1... 2... 3...'
-        gameOn = false;
+      resetGame('CONTINUE!');  
     }
 }));
 
-function resetAll() {
+function resetGame(message) {
+    for (let i = 0; i < docPlayerSigns.length; i++) {
+        docPlayerSigns[i].classList.remove('winner');
+        docPlayerSigns[i].classList.remove('looser');
+        docPlayerSigns[i].classList.remove('not-picked');
+        docPlayerSigns[i].classList.add('pickable');    
+    }
+    docCompSign.classList.remove('winner');
+    docCompSign.classList.remove('looser');
+    docWinner.textContent = message;
+    docCondition.textContent = '1... 2... 3...'
+    gameOn = false;
+}
+
+function resetScore() {
     numOfGames = 0;
     playerWins = 0;
     computerWins = 0;
-    
     setScore();
 }
 

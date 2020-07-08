@@ -53,15 +53,31 @@
 
     <footer class="flex-center">
         <div class="footer-text">
-            <div id="about">ABOUT GAME</div>
-            <div id="made-by">BY COUCHVEGGIE</div>
+            <div id="about-link" class="pointer">ABOUT GAME</div>
+            <div id="reset-link" class="pointer">RESET GAME</div>
         </div>
     </footer>
 
-    <article>
-        <p>This game was made by Couchveggie as an assignment in the <a href="https://www.theodinproject.com">The Odin Project</a>. 
-        <p>The assets comes from... bla bla.</p>
-    </article>
+    <div id="about" class="hidden">
+        <article>
+            <p>This game was made by Couchveggie as an assignment in the <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>. 
+            <p>The images used comes from <a href="https://icon-library.com/" target="_blank">Free Icons Library</a>. 
+                Specifically <a href="https://icon-library.com/icon/spock-icon-4.html" target="_blank">Rock</a>, 
+                <a href="https://icon-library.com/icon/spock-icon-3.html" target="_blank">Paper</a>, 
+                <a href="https://icon-library.com/icon/spock-icon-5.html" target="_blank">Scissors</a>, 
+                <a href="https://icon-library.com/icon/spock-icon-2.html" target="_blank">Lizard</a> and 
+                <a href="https://icon-library.com/icon/rock-paper-scissors-icon-6.html" target="_blank">Spock</a>.</p>
+        </article>
+    </div>
+
+    <div id="reset-confirmation" class="hidden">
+        <article>
+            <p>Are you sure you wish to reset the game score?</p>
+            <div class="flex-center reset-y-n">
+                <div id="reset-y" class="pointer">YES</div>
+            </div>
+        </article>
+    </div>
 
     <script src="myscript.js"></script>
 

@@ -1,4 +1,8 @@
 /* GLOBAL */
+*:hover {
+    cursor: default;
+}
+
 body {
     min-width: 300px;
     min-height: 300px;
@@ -14,7 +18,6 @@ body {
 }
 
 header, footer {
-    
     width: 100%;
     background-color: #215661;
     color: #fff;
@@ -37,21 +40,33 @@ img {
 
 article {
     max-width: 45vw;
-    position: absolute;
+    /*position: absolute;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto;*/
     background-color: #215661;
     color: #fff;
-    font-size: 2em;
+    font-size: 1.25em;
     line-height: 1.15;
     padding: 5vw;
     border: 5px solid #fff;
-
+    border-radius: 5px;
 }
 
 a {
     color: #fff;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+article p {
+    margin-bottom: 20px;
+}
+
+article p:last-of-type {
+    margin: 0;
 }
 
 /* CLASSES */
@@ -70,6 +85,29 @@ a {
 
 .looser {
     box-shadow: 0px 0px 5px 3px red;
+}
+
+.hidden {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    font-weight: bold;
+}
+
+.blocker {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* HEADER */
@@ -108,6 +146,10 @@ a {
     border-radius: 50%;
 }
 
+.player-sign img{
+    cursor: pointer;
+}
+
 .pickable:hover {
     transform: scale(1.1);
     box-shadow: 0px 0px 5px 3px #fff;
@@ -115,6 +157,17 @@ a {
 
 .not-picked {
     opacity: 0.5;
+}
+
+/* FOOTER */
+
+
+/* ABOUT BOX */
+
+
+/* RESET BOX */
+.reset-y-n {
+    margin-top: 20px;
 }
 
 @media only screen and (min-width: 400px) {
@@ -142,9 +195,12 @@ a {
     .player-sign-wrap {
         flex-direction: row;
     }
+    article {
+        font-size: 2em;
+    }
 }
 
-@media only screen and (min-width: 600px) and (min-height: 700px) {
+@media only screen and (min-width: 600px) and (min-height: 900px) {
     .player-sign-wrap {
         flex-direction: column;
     }
@@ -159,7 +215,7 @@ a {
     }
 }
 
-@media only screen and (min-width: 1024px) and (min-height: 700px) {
+@media only screen and (min-width: 1024px) and (min-height: 900px) {
     .player-sign-wrap {
         flex-direction: row;
     }
