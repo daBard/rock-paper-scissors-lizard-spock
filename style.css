@@ -167,6 +167,13 @@ article p:last-of-type {
 }
 
 /* MEDIA QUERIES */
+@media (hover: none) {
+    .pickable:hover {
+        transform: none;
+        box-shadow: none;
+    }
+  }
+
 @media only screen and (min-width: 360px) {
     .player-sign-wrap {
         flex-direction: row;
