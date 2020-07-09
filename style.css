@@ -166,13 +166,14 @@ article p:last-of-type {
     margin-top: 20px;
 }
 
-@media only screen and (min-width: 400px) {
+/* MEDIA QUERIES */
+@media only screen and (min-width: 360px) {
     .player-sign-wrap {
         flex-direction: row;
     }
 }
 
-@media only screen and (min-width: 400px) and (min-height: 600px) {
+@media only screen and (min-width: 360px) and (min-height: 600px) {
     .player-sign-wrap {
         flex-direction: column;
     }
