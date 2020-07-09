@@ -52,11 +52,11 @@ docResetBox.addEventListener('click', function(e){
 });
 
 docResetYes.addEventListener('click', function(){
-   resetScore();
-   resetGame('START!');
-   docResetBox.classList.toggle('blocker');
-   docResetBox.classList.toggle('hidden');
-
+    resetScore();
+    resetGame('START!');
+    docCompSign.src = hands[0].img;
+    docResetBox.classList.toggle('blocker');
+    docResetBox.classList.toggle('hidden');
 });
 
 //Build array of player signs and add event listener that either runs game or resets game
