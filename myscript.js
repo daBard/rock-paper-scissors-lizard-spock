@@ -84,7 +84,7 @@ function resetGame(message) {
     docCompSign.classList.remove('winner');
     docCompSign.classList.remove('looser');
     docWinner.textContent = message;
-    docCondition.textContent = '1... 2... 3...'
+    docCondition.textContent = 'Rock, Paper, Scissors, Lizard, Spock...'
     gameOn = false;
 }
 
