@@ -116,6 +116,7 @@ function game(_playerSelect) {
         return winMessage(null, _playerSelect, beatVerb, _computerSelect);
     }
 
+    //ROCK
     if (_playerSelect == hands[0].sign) {
         if (_computerSelect == hands[2].sign) {
             beatVerb = hands[0].beatVerb1;
@@ -135,6 +136,7 @@ function game(_playerSelect) {
         }
     }
 
+    //PAPER
     else if (_playerSelect == hands[1].sign) {
         if (_computerSelect == hands[0].sign) {
             beatVerb = hands[1].beatVerb1;
@@ -154,13 +156,14 @@ function game(_playerSelect) {
         }
     }
 
+    //SCISSORS
     else if (_playerSelect == hands[2].sign) {
         if (_computerSelect == hands[1].sign) {
             beatVerb = hands[2].beatVerb1;
             return winMessage(true, _playerSelect, beatVerb, _computerSelect);
         }
         else if (_computerSelect == hands[3].sign) {
-            beatVerb = hands[1].beatVerb1;
+            beatVerb = hands[2].beatVerb2;
             return winMessage(true, _playerSelect, beatVerb, _computerSelect);  
         }
         else if (_computerSelect == hands[0].sign) {
@@ -173,6 +176,7 @@ function game(_playerSelect) {
         }
     }
 
+    //LIZARD
     else if (_playerSelect == hands[3].sign) {
         if (_computerSelect == hands[1].sign) {
             beatVerb = hands[3].beatVerb1;
@@ -192,6 +196,7 @@ function game(_playerSelect) {
         }
     }
 
+    //SPOCK
     else if (_playerSelect == hands[4].sign) {
         if (_computerSelect == hands[0].sign) {
             beatVerb = hands[4].beatVerb1;
